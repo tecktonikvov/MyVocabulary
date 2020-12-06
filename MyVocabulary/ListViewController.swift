@@ -51,7 +51,6 @@ class ListViewController: UIViewController, KeyboardDetect {
         isAddedNewListBegin = true
         addButton.isEnabled = false
         tableView.reloadData()
-        //print(tableView.cellForRow(at: IndexPath(row: 0, section: 0)))
         let newListCell = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! ListCell
         newListCell.listTextField.becomeFirstResponder()
         navBar.leftBarButtonItem = leftBarButton

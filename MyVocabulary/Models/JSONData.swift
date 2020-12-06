@@ -32,7 +32,6 @@ struct JSONTranslator {
         session.dataTask(with: request) { (data, responce, error) in
             guard responce != nil
             else {
-                print("responce status is OK")
                 completion(JSONTranslator.TranslateResult.failure(ErrorType.responseError))
                 return }
             
