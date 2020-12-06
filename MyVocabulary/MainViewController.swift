@@ -178,7 +178,6 @@ class MainViewController: UIViewController, KeyboardDetect {
             isEditingCellBegin = true
             completionHandler(true)
             print(indexOfEditCell)
-            let editCell = tableView.cellForRow(at: IndexPath(row: indexOfEditCell, section: 0)) as! WordTableCell
             tableView.reloadRows(at: [indexPath], with: .right)
             segmentedControl.isEnabled = false
             //editCell.ruTextField.becomeFirstResponder()

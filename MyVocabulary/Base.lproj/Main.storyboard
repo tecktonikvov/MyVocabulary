@@ -4,7 +4,6 @@
     <dependencies>
         <deployment version="5120" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -159,68 +158,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2956" y="95.802098950524751"/>
-        </scene>
-        <!--Добавить слово-->
-        <scene sceneID="3nx-7E-Agu">
-            <objects>
-                <viewController id="l7a-3a-qAD" customClass="NewWordController" customModule="MyVocabulary" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bFu-a0-97e">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRE-Vd-PCi">
-                                <rect key="frame" x="16" y="143" width="343" height="57"/>
-                                <color key="backgroundColor" systemColor="systemGreenColor"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="57" id="qdj-30-AyQ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <state key="normal" title="Перевести">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                            </button>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter new word" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="au6-Tr-9tF" customClass="MDCOutlinedTextField">
-                                <rect key="frame" x="10" y="14" width="355" height="53"/>
-                                <accessibility key="accessibilityConfiguration" label="Some text"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="53" id="XxI-GO-uuX"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                        <color key="value" name="AccentColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
-                                        <color key="value" systemColor="systemRedColor"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
-                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="errorMessage" value="Слишком много символов"/>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="kIC-k5-B99"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="bRE-Vd-PCi" firstAttribute="top" secondItem="au6-Tr-9tF" secondAttribute="bottom" constant="76" id="22V-w3-iPo"/>
-                            <constraint firstItem="kIC-k5-B99" firstAttribute="trailing" secondItem="bRE-Vd-PCi" secondAttribute="trailing" constant="16" id="HHh-QD-28p"/>
-                            <constraint firstItem="bRE-Vd-PCi" firstAttribute="leading" secondItem="kIC-k5-B99" secondAttribute="leading" constant="16" id="Oex-YB-wda"/>
-                            <constraint firstItem="kIC-k5-B99" firstAttribute="trailing" secondItem="au6-Tr-9tF" secondAttribute="trailing" constant="10" id="R02-b5-rdc"/>
-                            <constraint firstItem="au6-Tr-9tF" firstAttribute="leading" secondItem="kIC-k5-B99" secondAttribute="leading" constant="10" id="USI-oh-yjl"/>
-                            <constraint firstItem="au6-Tr-9tF" firstAttribute="top" secondItem="kIC-k5-B99" secondAttribute="top" constant="14" id="VuL-Xm-8Y7"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Добавить слово" id="UV1-A5-1fn"/>
-                    <connections>
-                        <outlet property="inputTF" destination="au6-Tr-9tF" id="Ibd-GI-n5K"/>
-                        <outlet property="saveBtn" destination="bRE-Vd-PCi" id="chJ-Fm-eS8"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="aL0-Uv-glg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4218" y="346"/>
         </scene>
         <!--Список словарей-->
         <scene sceneID="WtL-Go-O7s">
@@ -383,20 +320,8 @@
     <color key="tintColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
         <image name="add" width="45" height="45"/>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

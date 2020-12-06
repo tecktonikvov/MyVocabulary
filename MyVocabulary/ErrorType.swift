@@ -14,7 +14,6 @@ enum ErrorType {
     case noMatchesInResponse
     case noTranslatedWordInMatch
     case incorrectTranlate
-    case translatedWordIsSame
 }
 
 // Типизируем енум до типа ошибки
@@ -40,9 +39,6 @@ extension ErrorType: LocalizedError { // протокол который пре�
         case .incorrectTranlate:
             return NSLocalizedString("Перевод не корректен", comment: "")
             
-        case .translatedWordIsSame:
-            return NSLocalizedString("Один из совпадений есть переданое слово", comment: "")
-
         }
     }
 }
