@@ -47,7 +47,7 @@ Delete and edit actions are implemented using **UIContextualAction**.
 There is also user input validation and content hoisting above the keyboard, just like in ListViewController
 
 <p align="center" > 
-<img src="https://ibb.co/Z8WxHcf"> <img src="https://ibb.co/VVfZpPL"> </p>
+<img src="https://ibb.co/Z8WxHcf"> <img src="https://i.ibb.co/H75spkK/Main-Controller-Add-edit-drag-and-drop.gif"> </p>
 
 ## Issues
 - Floating bug: Sometimes becomeFirstResponder fails.
