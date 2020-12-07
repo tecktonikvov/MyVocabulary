@@ -23,22 +23,21 @@ This is a dictionary - translator from English to Russian, which is based on sim
 
 ## Description
 
-The application uses **UITableView**, and contains 2 views. The initial view controller name is: **ListViewController**, it represented as a UIViewController that contains a ScrollView that contains a TableView, the cells of which contain the names of the dictionary sheets that the user can add, delete, edit names and sort by dragging and dropping. 
+The application uses **UITableView**, and contains 2 views. The initial view controller name is: **ListViewController**, it represented as a UIViewController that contains a ScrollView that contains a TableView, the cells of which contain the names of the dictionary sheets that the user can add, delete, edit names and sort by dragging and dropping.
 
 <p align="center" > 
-<img src="http://images.vfl.ru/ii/1607352116/e817489a/32582341.gif"></p>
-
+<img src="./Add delete drag .gif"></p>
 
 User input has validation, and if the input is not correct, the user will see an Alert with a description of the error.
 Deletion and editing implemented using UIContextualAction. 
 
 <p align="center" > 
-<img src="http://images.vfl.ru/ii/1607352116/76d809a0/32582342.gif"></p>
+<img src="./swipe edit alert.gif"></p>
 
 <p>Also implemented raising the TableView content after calling the keyboard to the height of the keyboard frame size
 
 <p align="center" > 
-<img src="http://images.vfl.ru/ii/1607352118/d958bd49/32582343.gif"></p>
+<img src="./Keyboard up.gif"></p>
 
 
 When tapping on a cell, we go to the **MainViewController** which is an instance of the UITableViewController class.
@@ -47,7 +46,7 @@ Delete and edit actions are implemented using **UIContextualAction**.
 There is also user input validation and content hoisting above the keyboard, just like in ListViewController
 
 <p align="center" > 
-<img src="http://images.vfl.ru/ii/1607352013/fe9cfbf5/32582318.gif"><img src="http://images.vfl.ru/ii/1607352075/201d77a1/32582334.gif"> </p>
+<img <img src="./Main VC segue sort.gif"><img <img src="./MainController Add edit drag and drop.gif"> </p>
 
 ## Issues
 - Floating bug: Sometimes becomeFirstResponder fails.
