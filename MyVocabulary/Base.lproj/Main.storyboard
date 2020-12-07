@@ -194,7 +194,7 @@
                                                             <color key="backgroundColor" red="0.074509803920000006" green="0.08235294118" blue="0.08235294118" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <color key="textColor" red="1" green="0.98039215690000003" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="webSearch" returnKeyType="yahoo" enablesReturnKeyAutomatically="YES"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="number" keyPath="maxLength">
                                                                     <integer key="value" value="24"/>
@@ -251,7 +251,7 @@
                                     <constraint firstAttribute="width" constant="42" id="hm9-kK-OCz"/>
                                 </constraints>
                                 <color key="tintColor" red="1" green="0.98039215690000003" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" image="add">
+                                <state key="normal" image="addBtn">
                                     <color key="titleColor" red="1" green="0.98039215690000003" blue="0.98431372549999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -319,7 +319,7 @@
     </scenes>
     <color key="tintColor" red="0.20000000000000001" green="0.59999999999999998" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
     <resources>
-        <image name="add" width="45" height="45"/>
+        <image name="addBtn" width="45" height="45"/>
         <systemColor name="systemGray4Color">
             <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

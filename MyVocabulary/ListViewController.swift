@@ -67,7 +67,7 @@ class ListViewController: UIViewController, KeyboardDetect {
     
 //MARK: - SWIPE Actions
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-
+        addButton.isHidden = true
       //Setup Delete Action
         let delete = UIContextualAction(style: .destructive, title: "Delete"){ [self] (action, view, completionHandler) in
             UserDataModel.deleteList(nameOfUserList: nameOfUserList[indexPath.row])
@@ -75,7 +75,10 @@ class ListViewController: UIViewController, KeyboardDetect {
             tableView.deleteRows(at: [indexPath], with: .left)
             completionHandler(true)
         }
-        delete.image = #imageLiteral(resourceName: "trashIcon")
+        delete.image = UIGraphicsImageRenderer(size: CGSize(width: 30, height: 40)).image { _ in
+            UIImage(named: "trashIcon")?.draw(in: CGRect(x: 0, y: 0, width: 30, height: 40))
+        }
+        
       //Setup Edit Action
         let edit = UIContextualAction(style: .normal, title: "Edit"){ [self] (action, view, completionHandler) in
             indexOfEditCell = indexPath.row
@@ -89,7 +92,9 @@ class ListViewController: UIViewController, KeyboardDetect {
             editCell.listTextField.becomeFirstResponder()
             navBar.leftBarButtonItem = leftBarButton
         }
-        edit.image = #imageLiteral(resourceName: "editIcon")
+        edit.image = UIGraphicsImageRenderer(size: CGSize(width: 40, height: 40)).image { _ in
+            UIImage(named: "editIcon")?.draw(in: CGRect(x: 0, y: 0, width: 40, height: 40))
+        }
         
         let none = UISwipeActionsConfiguration(actions: [])
         let swipe = UISwipeActionsConfiguration(actions: [edit, delete])
@@ -121,6 +126,7 @@ class ListViewController: UIViewController, KeyboardDetect {
             editBarButn.isEnabled = true
             keyboardIsActive = false
             addButton.isEnabled = true
+            navBar.leftBarButtonItem = nil
             tableView.reloadRows(at: [IndexPath(row: indexOfEditCell, section: 0)], with: .none)
 
         } else {// если имя новое
@@ -131,6 +137,7 @@ class ListViewController: UIViewController, KeyboardDetect {
             editBarButn.isEnabled = true
             keyboardIsActive = false
             addButton.isEnabled = true
+            navBar.leftBarButtonItem = nil
             tableView.reloadRows(at: [IndexPath(row: indexOfEditCell, section: 0)], with: .none)
         }
     }

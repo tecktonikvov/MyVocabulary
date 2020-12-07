@@ -38,7 +38,6 @@ class MainViewController: UIViewController, KeyboardDetect {
                 vocabruary.append([wordToTranslate: translatedText])
                 vocabruary = vocabruary.reversed()
                 tableView.reloadData()
-                print(vocabruary)
                 //Prepeare to save Object to Save()
                 let objToSave = UserDataModel()
                 objToSave.dupletOfWords = UserDataModel.prepareToSaveUserWords(dupletDict: vocabruary.first!)
@@ -50,6 +49,7 @@ class MainViewController: UIViewController, KeyboardDetect {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationBar.title = nameOfSelectedList
         vocabruary = UserDataModel.getUserDuplets(userNamesOfLists: nameOfSelectedList)
         registerForKeyboardNotification()
     }
@@ -139,6 +139,7 @@ class MainViewController: UIViewController, KeyboardDetect {
     }
     
     @objc func keybordWillShow(_ notification: Notification) {
+        if !isAddingNewWordBegin {
         let userInfo = notification.userInfo
         let kbFrameSize = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let kbFrameSizeInt = Int(kbFrameSize.height)
@@ -153,11 +154,11 @@ class MainViewController: UIViewController, KeyboardDetect {
             tableView.scrollToRow(at: IndexPath(row: indexOfEditCell, section: 0), at: .bottom, animated: true)
         }
     }
+    }
     
     @objc func keyboardWillHide(){
         tableView.contentOffset = CGPoint.zero
     }
-    
 
 //MARK: - SWIPE Actions
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -170,6 +171,9 @@ class MainViewController: UIViewController, KeyboardDetect {
             completionHandler(true)
             tableView.reloadData()
         }
+        delete.image = UIGraphicsImageRenderer(size: CGSize(width: 30, height: 40)).image { _ in
+            UIImage(named: "trashIcon")?.draw(in: CGRect(x: 0, y: 0, width: 30, height: 40))
+        }
         
         //Setup Edit Action
         let edit = UIContextualAction(style: .normal, title: "Edit"){ [self] (action, view, completionHandler) in
@@ -177,10 +181,12 @@ class MainViewController: UIViewController, KeyboardDetect {
             navigationBar.rightBarButtonItems = [cancellButton]
             isEditingCellBegin = true
             completionHandler(true)
-            print(indexOfEditCell)
             tableView.reloadRows(at: [indexPath], with: .right)
             segmentedControl.isEnabled = false
             //editCell.ruTextField.becomeFirstResponder()
+        }
+        edit.image = UIGraphicsImageRenderer(size: CGSize(width: 40, height: 40)).image { _ in
+            UIImage(named: "editIcon")?.draw(in: CGRect(x: 0, y: 0, width: 40, height: 40))
         }
         
         let none = UISwipeActionsConfiguration(actions: [])
@@ -200,6 +206,15 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat{
         return CGFloat.leastNormalMagnitude // убирает блядский отступ в хедере тейбл вью
     }
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WordTableCell
+        if isEditingCellBegin{
+            if indexOfEditCell == indexPath.row {
+                cell.ruTextField.becomeFirstResponder()
+            }
+        }
+    }
     //Make disable delete button in isEditing mode
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         UITableViewCell.EditingStyle.none
@@ -210,6 +225,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print(indexOfEditCell)
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WordTableCell
         cell.wordEngTextField.isHidden = true
         cell.ruTextField.isHidden = true
@@ -238,6 +254,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.ruLabel.isHidden = true
                 cell.ruTextField.isHidden = false
                 cell.ruTextField.text = cell.ruLabel.text
+                print("firstResponder")
                 cell.ruTextField.becomeFirstResponder()
             }
         }
@@ -278,6 +295,7 @@ extension MainViewController: UITextFieldDelegate {
             vocabruary = UserDataModel.getUserDuplets(userNamesOfLists: nameOfSelectedList) //получаем из базы обновленый спписок
             isEditingCellBegin = false
             segmentedControl.isEnabled = true
+            navigationBar.rightBarButtonItems = [addButton, editButton]
             tableView.reloadData()
         }
         return false
