@@ -32,7 +32,13 @@ The application uses UITableView, and contains 2 views. The initial view control
 User input has validation, and if the input is not correct, the user will see an Alert with a description of the error.
 Deletion and editing implemented using UIContextualAction. 
 
+<p align="center" > 
+<img src="https://docs.google.com/uc?id=1inSLlfGK8y2ya2jm63l4AK3fWr9ozFpm"></p>
+
 <p>Also implemented raising the TableView content after calling the keyboard to the height of the keyboard frame size
+
+<p align="center" > 
+<img src="https://docs.google.com/uc?id=1ckofBhMrL4IaaqellES_HH5IUN_xitC5"></p>
 
 <p> 
 When tapping on a cell, we go to the mainViewController which is an instance of the UITableViewController class.
