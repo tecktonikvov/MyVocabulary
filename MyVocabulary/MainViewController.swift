@@ -10,13 +10,14 @@ import RealmSwift
 
 
 class MainViewController: UIViewController, KeyboardDetect {
-
+//MARK: - IUOutlets
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var navigationBar: UINavigationItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addWordButton: UIBarButtonItem!
     @IBOutlet weak var editButtn: UIBarButtonItem!
     
+//MARK: - Default setup
     private var indexOfEditCell = 99999
     var nameOfSelectedList = String()
     private var wordToTranslate = String()
@@ -58,6 +59,7 @@ class MainViewController: UIViewController, KeyboardDetect {
         removeKeyboardNotifications()
     }
     
+//MARK: - IB and @objc actions
     @IBAction func addWordButtonAction(_ sender: UIBarButtonItem) {
         indexOfEditCell = 0
         tableView.setContentOffset(.zero, animated: false)//Scroll to top of tableView
@@ -65,7 +67,6 @@ class MainViewController: UIViewController, KeyboardDetect {
         vocabruary.append(["": ""])
         vocabruary = vocabruary.reversed()
         isAddingNewWordBegin = true
-        //addWordButton.isEnabled = false
         tableView.reloadData()
         (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! WordTableCell).wordEngTextField.becomeFirstResponder()
         navigationBar.rightBarButtonItems = [cancellButton]
@@ -98,17 +99,6 @@ class MainViewController: UIViewController, KeyboardDetect {
             tableView.reloadData()
         default:
             return
-        }
-    }
-    func fetchTranslate (_ word: String){
-        translator.getTranslate(word) {[self] (result) in // Используем result для получения результата работы комплишн хендлнра
-            switch result {
-            case .success(let translatedText): // получили в перемнную translatedText данные из кейса
-                self.translatedText = translatedText as! String
-                
-            case .failure(let error):
-                print(error.localizedDescription)
-            }
         }
     }
     
@@ -197,6 +187,18 @@ class MainViewController: UIViewController, KeyboardDetect {
             return swipe
         } else {
             return none
+        }
+    }
+    
+    func fetchTranslate (_ word: String){
+        translator.getTranslate(word) {[self] (result) in // Используем result для получения результата работы комплишн хендлнра
+            switch result {
+            case .success(let translatedText): // получили в перемнную translatedText данные из кейса
+                self.translatedText = translatedText as! String
+                
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
 }
