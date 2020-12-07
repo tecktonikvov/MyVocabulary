@@ -40,7 +40,7 @@ Deletion and editing implemented using UIContextualAction.
 <p align="center" > 
 <img src="https://docs.google.com/uc?id=1ckofBhMrL4IaaqellES_HH5IUN_xitC5"></p>
 
-<p> 
+
 When tapping on a cell, we go to the **MainViewController** which is an instance of the UITableViewController class.
 It contains cells with pairs of words. The user can add, delete, drag and drop, edit Russian translation, and sort by English or Russian characters. 
 Delete and edit actions are implemented using **UIContextualAction**.
