@@ -32,7 +32,7 @@ User input has validation, and if the input is not correct, the user will see an
 Deletion and editing implemented using UIContextualAction. 
 
 <p align="center" > 
-<img src="./swipe edit alert.gif"></p>
+<img src="./swipe edit alert.gif" width="250px"></p>
 
 <p>Also implemented raising the TableView content after calling the keyboard to the height of the keyboard frame size
 
