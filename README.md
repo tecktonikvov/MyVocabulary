@@ -26,25 +26,28 @@ This is a dictionary - translator from English to Russian, which is based on sim
 The application uses **UITableView**, and contains 2 views. The initial view controller name is: **ListViewController**, it represented as a UIViewController that contains a ScrollView that contains a TableView, the cells of which contain the names of the dictionary sheets that the user can add, delete, edit names and sort by dragging and dropping. 
 
 <p align="center" > 
-<img src="https://docs.google.com/uc?id=10mzP_wBOLAiA2KIWmR3SFrIKm7FUFwQO"></p>
+<img src="https://ibb.co/JF02pXc"></p>
 
 
 User input has validation, and if the input is not correct, the user will see an Alert with a description of the error.
 Deletion and editing implemented using UIContextualAction. 
 
 <p align="center" > 
-<img src="https://docs.google.com/uc?id=1inSLlfGK8y2ya2jm63l4AK3fWr9ozFpm"></p>
+<img src="https://ibb.co/MDktxLH"></p>
 
 <p>Also implemented raising the TableView content after calling the keyboard to the height of the keyboard frame size
 
 <p align="center" > 
-<img src="https://docs.google.com/uc?id=1ckofBhMrL4IaaqellES_HH5IUN_xitC5"></p>
+<img src="https://ibb.co/whgqzgp"></p>
 
 
 When tapping on a cell, we go to the **MainViewController** which is an instance of the UITableViewController class.
 It contains cells with pairs of words. The user can add, delete, drag and drop, edit Russian translation, and sort by English or Russian characters. 
 Delete and edit actions are implemented using **UIContextualAction**.
 There is also user input validation and content hoisting above the keyboard, just like in ListViewController
+
+<p align="center" > 
+<img src="https://ibb.co/Z8WxHcf"> <img src="https://ibb.co/VVfZpPL"> </p>
 
 ## Issues
 - Floating bug: Sometimes becomeFirstResponder fails.
