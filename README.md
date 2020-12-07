@@ -41,7 +41,10 @@ It contains cells with pairs of words. The user can add, delete, drag and drop, 
 Delete and edit actions are implemented using UIContextualAction.
 There is also user input validation and content hoisting above the keyboard, just like in ListViewController
 
-
+## Issues
+- Floating bug: Sometimes becomeFirstResponder fails.
+- Add button in ListViewController hides when the swipe action starts and then does not appear
 
 ## Future scope
 - Add sear in navigation controller
+- Fix add button
