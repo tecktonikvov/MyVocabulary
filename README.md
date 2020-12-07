@@ -13,24 +13,23 @@
 
 <img src="https://img.shields.io/badge/issues-2%20open-yellow">
 
-
-
 </p>
 
-
 ## About the project.
-
-
 
 Hello everyone, this is my first successful training project.
 This is a dictionary - translator from English to Russian, which is based on simplicity and ease of use. It was designed for personal use and to help you learn English. Written in Swift 5, with a realm 10.0.0 database, and uses the Google translator API for translation
 
 
 ## Description
-<p>The application uses UITableView, and contains 2 views
-The initial view controller name is: ListViewController, it represented as a UIViewController that contains a ScrollView that contains a TableView, 
-the cells of which contain the names of the dictionary sheets that the user can add, delete, edit names and sort by dragging and dropping. 
-User input has validation, and if the input is not correct, the user will see an Alert with a description of the error. 
+
+The application uses UITableView, and contains 2 views. The initial view controller name is: ListViewController, it represented as a UIViewController that contains a ScrollView that contains a TableView, the cells of which contain the names of the dictionary sheets that the user can add, delete, edit names and sort by dragging and dropping. 
+
+<p align="center" > 
+<img src="https://docs.google.com/uc?id=10mzP_wBOLAiA2KIWmR3SFrIKm7FUFwQO"></p>
+
+
+User input has validation, and if the input is not correct, the user will see an Alert with a description of the error.
 Deletion and editing implemented using UIContextualAction. 
 
 <p>Also implemented raising the TableView content after calling the keyboard to the height of the keyboard frame size
