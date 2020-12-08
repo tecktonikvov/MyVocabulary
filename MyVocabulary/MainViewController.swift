@@ -16,6 +16,7 @@ class MainViewController: UIViewController, KeyboardDetect {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var addWordButton: UIBarButtonItem!
     @IBOutlet weak var editButtn: UIBarButtonItem!
+    @IBOutlet weak var scrollView: UIScrollView!
     
 //MARK: - Default setup
     private var indexOfEditCell = 99999
@@ -129,25 +130,24 @@ class MainViewController: UIViewController, KeyboardDetect {
     }
     
     @objc func keybordWillShow(_ notification: Notification) {
-        if !isAddingNewWordBegin {
         let userInfo = notification.userInfo
         let kbFrameSize = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let kbFrameSizeInt = Int(kbFrameSize.height)
         let yPositionOfRow = Int((tableView.cellForRow(at: IndexPath(row: indexOfEditCell, section: 0))?.frame.minY)!)
         let viewFrameHeight = Int(self.tableView.frame.height)
         let rowIsUnderKeyboard: Bool = viewFrameHeight - (yPositionOfRow + 35) <= kbFrameSizeInt
-            print("rowIsUnderKeyboard \(rowIsUnderKeyboard) :: isEditingCellBegin \(isEditingCellBegin) ")
+        print("rowIsUnderKeyboard \(rowIsUnderKeyboard) :: isEditingCellBegin \(isEditingCellBegin) ")
         if isEditingCellBegin && rowIsUnderKeyboard {
             print("table Up")
             let kbFrameSize = (userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue // получили значение фрейма клавиатуры
-            tableView.contentOffset = CGPoint(x: 0, y: kbFrameSize.height)
+            scrollView.contentOffset = CGPoint(x: 0, y: kbFrameSize.height)
             tableView.scrollToRow(at: IndexPath(row: indexOfEditCell, section: 0), at: .bottom, animated: true)
         }
-    }
+        
     }
     
     @objc func keyboardWillHide(){
-        tableView.contentOffset = CGPoint.zero
+        scrollView.contentOffset = CGPoint.zero
     }
 
 //MARK: - SWIPE Actions
@@ -227,7 +227,6 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print(indexOfEditCell)
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! WordTableCell
         cell.wordEngTextField.isHidden = true
         cell.ruTextField.isHidden = true
@@ -258,6 +257,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.ruTextField.text = cell.ruLabel.text
                 print("firstResponder")
                 cell.ruTextField.becomeFirstResponder()
+                cell.ruTextField.backgroundColor = .red
             }
         }
         return cell
